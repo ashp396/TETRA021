@@ -94,6 +94,9 @@ curl -X GET "http://localhost:8000/report/runs/RUN_ID/pdf" \
 
 # Architecture
 
+# Architecture
+
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                    Frontend (finvestor_app.html)            │
 │  - Upload UI, Score Dashboard, PDF Download, Voice Agent    │
@@ -114,6 +117,7 @@ curl -X GET "http://localhost:8000/report/runs/RUN_ID/pdf" \
 │  ChromaDB (local) → Vector store for RAG                    │
 │  Groq API → LLM for extraction & discrepancy explanations   │
 └─────────────────────────────────────────────────────────────┘
+```
 RAG Pipeline
 Document Parsing: LlamaParse converts PDF/PPTX/XLSX → text + tables with layout
 
