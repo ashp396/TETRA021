@@ -174,7 +174,7 @@ Deepgram: $200 credit
 ElevenLabs: 10K characters/month 
 
 # Project Structure
-text
+```text
 finvestor/
 ├── README.md
 ├── finvestor_app.html           # Static frontend demo
@@ -197,6 +197,7 @@ finvestor/
 │   └── vectorstore/             # ChromaDB persistence
 └── templates/
     └── pdf_report.html          # Jinja2 PDF template
+```
     
 # Tech Stack
 Component	Technology	Free Tier
