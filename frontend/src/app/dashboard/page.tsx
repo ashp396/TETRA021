@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { api, getToken, clearToken } from "@/lib/api";
 import DocumentUpload from "@/components/DocumentUpload";
 import ScoreCard from "@/components/ScoreCard";
-import DiscrepancyCard from "@/components/DiscrepancyCard";
+import DiscrepancyCard from "@/components/DiscrepancyCard"; 
 import PennyPal from "@/components/PennyPal";
 import TeamPanel from "@/components/TeamPanel";
 
