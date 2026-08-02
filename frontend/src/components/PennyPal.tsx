@@ -15,7 +15,7 @@ function PennyIcon({ size = 36 }: { size?: number }) {
       <path d="M80 30 L70 18 L64 32 Z" fill="#c1447e" />
     </svg>
   );
-}
+} 
 
 export default function PennyPal() {
   const [open, setOpen] = useState(false);
