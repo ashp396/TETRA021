@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { api } from "@/lib/api";
 
 const DOC_TYPES = ["Pitch deck", "Financial statements", "Monthly MIS", "Projections", "Cap table", "Other"];
-
+ 
 export default function DocumentUpload({ onAdded }: { onAdded: () => void }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [docType, setDocType] = useState("Pitch deck");
