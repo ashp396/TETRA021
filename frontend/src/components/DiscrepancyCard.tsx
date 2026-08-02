@@ -7,7 +7,7 @@ export default function DiscrepancyCard({ d }: { d: any }) {
   const [tasks, setTasks] = useState<{ text: string; done: boolean; id?: string }[]>([]);
   const [commentText, setCommentText] = useState("");
   const [taskText, setTaskText] = useState("");
-
+ 
   const badgeColor =
     d.classification === "verified mismatch" ? "#e0587a" :
     d.classification === "missing information" ? "#a99cc2" : "#f0c667";
