@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Finvestor",
   description: "Fundraising readiness, checked before your investor does.",
 };
-
+ 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
