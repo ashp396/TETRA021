@@ -1,4 +1,3 @@
-"""Turn uploaded files into plain text, whatever format they arrive in."""
 import io
 import csv
 import pdfplumber
