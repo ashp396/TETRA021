@@ -1,3 +1,8 @@
+# Runs the entire product with one command: Postgres, the FastAPI
+# backend (compiled dependencies installed inside the image, Python
+# 3.13), and the compiled Next.js frontend (production build, not dev
+# server). From the repo root:
+#
 #   cp backend/.env.example backend/.env   # then add your GROQ_API_KEY
 #   docker compose up --build
 #

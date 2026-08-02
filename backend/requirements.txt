@@ -1,3 +1,8 @@
+# Pinned to versions that publish prebuilt wheels for Python 3.13. If a
+# future pip install still fails on one specific package, it is almost
+# always ctranslate2 (a dependency of faster-whisper, used for voice
+# transcription) since ML wheel builds are usually the slowest to catch
+# up on a new Python release. See backend/README.md for the fallback.
 faster-whisper>=1.1.0
 fastapi==0.115.5
 uvicorn[standard]==0.32.0

@@ -10,7 +10,7 @@ and chat assistant grounded in your own documents.
 ```
 finvestor-repo/
 ├── docker-compose.yml   runs everything together: db, backend, frontend
-├── backend/             FastAPI, Python 3.13
+├── backend/             FastAPI, Python 3.13, Postgres only (no separate vector store)
 └── frontend/            Next.js 14, compiled production build
 ```
 
@@ -49,6 +49,24 @@ npm start
 ```
 (or `npm run dev` while you're actively changing frontend code)
 
+## A note on Python 3.13 compatibility
+
+I pinned every backend dependency to a version that publishes prebuilt
+wheels for Python 3.13, and switched the Postgres driver from
+`psycopg2-binary` to `psycopg` (v3), which has first class 3.13 support.
+I don't have a live Python 3.13 interpreter or internet access in the
+environment I built this in, so I checked every file compiles cleanly on
+Python 3.12 (the closest available here) and reasoned through version
+compatibility rather than running a real `pip install` on 3.13 — please
+treat first boot as the real test. If `pip install -r requirements.txt`
+fails on exactly one package, it will almost certainly be `ctranslate2`
+(a dependency of `faster-whisper`, used for voice transcription), since
+ML wheel builds are usually the slowest to catch up on a new Python
+release. If that happens: either run the backend on Python 3.12 instead
+(everything else here is fine on it), or comment out the STT parts of
+`app/voice.py` and rely on the browser's built in microphone
+transcription in `PennyPal.tsx`, which needs no server side model at
+all.
 
 ## Where each requested feature lives
 
@@ -72,16 +90,16 @@ npm start
 SEBI's own rulebook (ICDR, LODR, PIT regulations) mainly governs listed
 companies, IPOs, and SEBI registered Alternative Investment Funds. A
 private seed or Series A round by an unlisted startup is chiefly governed
-by the Companies Act, 2013 instead ,in particular Section 42 on private
+by the Companies Act, 2013 instead — in particular Section 42 on private
 placement. Finvestor's "Regulatory & Disclosure Hygiene" category checks
 for the paperwork and disclosure habits that SEBI registered AIFs
 commonly expect from the startups they fund (an offer letter or board
 resolution for the round, valuation support, related party transactions
 flagged rather than buried). It does not perform a legal or regulatory
-compliance review, and nothing it produces is legal advice , a company
+compliance review, and nothing it produces is legal advice — a company
 secretary or securities lawyer should sign off on actual compliance.
 
-## Limitations for certain devices
+## Honest limitations to know before you deploy this
 
 - Postgres tables are created with `create_all` on startup for
   simplicity; before production use, switch to Alembic migrations.

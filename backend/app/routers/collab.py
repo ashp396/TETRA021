@@ -1,3 +1,8 @@
+"""Comment threads and task assignment on each discrepancy, so co founders
+can divide up fixes. This is persistent, not a live multiplayer feed: a
+co founder opens the workspace later and sees the same comments and
+tasks, the way a shared document works, rather than watching updates
+appear in real time while someone else is typing."""
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.database import get_db

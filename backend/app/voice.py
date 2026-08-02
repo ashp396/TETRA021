@@ -1,3 +1,9 @@
+"""Voice agent plumbing for PennyPal.
+
+Speech to text runs locally with faster whisper, free, no API key.
+Text to speech defaults to edge tts, also free and keyless. If you add an
+ELEVENLABS_API_KEY, that is used instead for a higher quality PennyPal voice.
+"""
 import io
 import tempfile
 import asyncio

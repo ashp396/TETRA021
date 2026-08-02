@@ -1,3 +1,30 @@
+"""The readiness scoring engine.
+
+Cross document verification and discrepancy detection are retrieval
+driven: for each metric area (revenue, margins, growth, customers, cash,
+ownership, and standard Indian private fundraising disclosure hygiene) we
+retrieve the most relevant chunks from every uploaded document using
+Postgres full text search (see app.search_index), then ask the model to
+compare them and cite which document each figure came from. This keeps
+the score explainable and grounded instead of a black box number, and
+stops the model from inventing figures that are not actually in the
+documents.
+
+A note on "SEBI guidelines": SEBI's direct rulebook (ICDR, LODR, PIT
+regulations) governs listed companies, IPOs, and SEBI registered
+Alternative Investment Funds. A private seed or Series A round by an
+unlisted startup is mostly governed by the Companies Act, 2013 instead,
+in particular Section 42 on private placement (a cap of 200 investors
+per financial year, and requirements like a PAS-4 offer letter and a
+valuation report from a registered valuer), plus ordinary disclosure
+hygiene that SEBI registered AIFs commonly expect from the startups they
+fund (arm's length related party transactions, a cap table consistent
+with the round terms, valuation support for the round). This tool checks
+documents for that general hygiene and flags gaps in it; it does not
+perform a legal or regulatory compliance review, and nothing it produces
+should be treated as legal advice. A company secretary or securities
+lawyer should sign off on actual compliance.
+"""
 from sqlalchemy.orm import Session
 from app.search_index import retrieve_all_grouped
 from app.llm import chat_json

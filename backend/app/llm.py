@@ -1,3 +1,6 @@
+"""Thin wrapper around Groq so the rest of the app never touches the SDK
+directly. If no key is configured yet, callers get a clear error instead
+of a crash, so the rest of the product still runs while you get set up."""
 import json
 from groq import Groq
 from app.config import settings
