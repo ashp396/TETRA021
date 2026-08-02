@@ -9,7 +9,7 @@ const CATEGORIES = [
   { key: "ddPrep", label: "DD Preparedness" },
   { key: "regHygiene", label: "Regulatory & Disclosure Hygiene" },
 ];
-
+ 
 export default function ScoreCard({ analysis }: { analysis: any }) {
   if (!analysis) return null;
   const score = analysis.composite_score;
