@@ -6,7 +6,7 @@ export default function TeamPanel() {
   const [members, setMembers] = useState<any[]>([]);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
+ 
   async function load() {
     const res = await api.get("/api/workspaces/members");
     setMembers(res.data);
