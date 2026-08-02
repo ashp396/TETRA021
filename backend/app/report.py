@@ -1,5 +1,3 @@
-"""One page investor readiness report, generated with reportlab so it has
-no external system dependencies to install."""
 import io
 from datetime import datetime
 from reportlab.lib.pagesizes import A4
