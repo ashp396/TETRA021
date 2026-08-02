@@ -1,13 +1,3 @@
-"""Retrieval layer for cross document checking.
-
-Earlier versions of this used a separate vector database (ChromaDB) with a
-local sentence-transformers embedding model. This version uses Postgres
-full text search instead: one extra table, no second database to run, no
-model download on first request. It is a simpler stack; it is a keyword
-and phrase ranking search rather than a semantic vector search, so it
-works best when the follow up query shares vocabulary with the documents
-(which fundraising terms like "revenue", "cap table", "runway" reliably do).
-"""
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
