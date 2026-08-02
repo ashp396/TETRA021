@@ -9,9 +9,9 @@ and chat assistant grounded in your own documents.
 
 ```
 finvestor-repo/
-├── docker-compose.yml   runs everything together: db, backend, frontend
-├── backend/             FastAPI, Python 3.13, Postgres only (no separate vector store)
-└── frontend/            Next.js 14, compiled production build
+├── docker-compose.yml   
+├── backend/             FastAPI, Python 3.13, Postgres
+└── frontend/            Next.js 14
 ```
 
 ## Run the whole thing with one command
