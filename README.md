@@ -87,7 +87,7 @@ secretary or securities lawyer should sign off on actual compliance.
   simplicity; before production use, switch to Alembic migrations.
 - Full text search over English keywords is simpler to run than a vector
   database, but it is a keyword and phrase match rather than a semantic
-  one — a query needs to share vocabulary with the documents to find the
+  one, a query needs to share vocabulary with the documents to find the
   right chunk. Fundraising terms (revenue, cap table, runway, valuation)
   reliably do; very indirect phrasing may not.
 - Team access is persistent, not real time: a co founder needs to
@@ -97,6 +97,4 @@ secretary or securities lawyer should sign off on actual compliance.
   fine for a prototype, consider a hosted STT API if you scale up usage.
 - No file storage service is wired in; uploaded documents are parsed to
   text and only the text is kept in Postgres, not the original files.
-- I built and syntax checked this without a live Python 3.13 runtime or
-  internet access — see the compatibility note above before you assume
-  first boot will be silent.
+
